@@ -17,8 +17,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const HomePage(),
-        '/List': (context) => const ListPage(list: [],),
-        '/details': (context) => const DetailPage(), // Placeholder for details page
+        '/List': (context) => const ListPage(),
+        '/details': (context) => DetailPage(pokemon: {}),
       },
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),

@@ -8,4 +8,12 @@
     required this.type,
     required this.image,
  });
+
+  static Pokemon fromJson(pokemonData) {
+    return Pokemon(
+      name: pokemonData['name'] ?? '',
+      type: pokemonData['type'] ?? '',
+      image: pokemonData['image'] ?? '',
+    );
+  }
 }
