@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const HomePage(),
         '/List': (context) => const ListPage(),
-        '/details': (context) => DetailPage(pokemon: {}),
+        '/details': (context) => DetailPage(pokemon: ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>),
       },
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),

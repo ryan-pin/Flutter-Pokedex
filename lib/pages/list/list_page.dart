@@ -3,6 +3,8 @@ import 'package:pokedexflutter/models/pokemon.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+import 'package:pokedexflutter/pages/details/detail_page.dart';
+
 class ListPage extends StatefulWidget {
   const ListPage({super.key});
 
@@ -85,10 +87,10 @@ class _ListPageState extends State<ListPage> {
                       pokemon.type?.capitalize() ?? '',
                     ),
                     onTap: () {
-                      Navigator.pushNamed(
-                        context,
-                        '/details',
-                        arguments: pokemon,
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => DetailPage(pokemon: pokemon.toJson()),
+                        ),
                       );
                     },
                   ),

@@ -16,4 +16,12 @@
       image: pokemonData['image'] ?? '',
     );
   }
+
+  toJson() {
+    return {
+      'name': name,
+      'type': type,
+      'image': image,
+    };
+  }
 }

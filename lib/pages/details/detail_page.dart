@@ -27,32 +27,7 @@ class DetailPage extends StatelessWidget {
           SafeArea(
             child: Column(
               children: [
-                // Tela de imagem
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 32),
-                  padding: const EdgeInsets.all(8),
-                  decoration: BoxDecoration(
-                    color: Colors.grey[300],
-                    border: Border.all(color: Colors.black, width: 2),
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(12),
-                    child: Image.network(
-                      pokemon['sprites']['other']['official-artwork']['front_default'] ?? 
-                      pokemon['sprites']['front_default'] ?? '',
-                      fit: BoxFit.cover,
-                      height: 200,
-                      errorBuilder: (context, error, stackTrace) {
-                        return Image.asset(
-                          'assets/images/pokemonmock.png',
-                          fit: BoxFit.cover,
-                          height: 200,
-                        );
-                      },
-                    ),
-                  ),
-                ),
+
 
                 const SizedBox(height: 20),
 
@@ -85,29 +60,6 @@ class DetailPage extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 5),
-                      Wrap(
-                        spacing: 8,
-                        children: (pokemon['types'] as List).map<Widget>((type) {
-                          return Container(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 12,
-                              vertical: 6,
-                            ),
-                            decoration: BoxDecoration(
-                              color: Colors.red,
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Text(
-                              type['type']['name'].toString().toUpperCase(),
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 12,
-                              ),
-                            ),
-                          );
-                        }).toList(),
-                      ),
                     ],
                   ),
                 ),
