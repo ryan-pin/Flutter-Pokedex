@@ -77,19 +77,23 @@ class _ListPageState extends State<ListPage> {
               itemBuilder: (context, index) {
                 final pokemon = pokemonList[index];
                 return Card(
-                  margin: const EdgeInsets.all(8.0),
+                  margin: const EdgeInsets.fromLTRB(72.0, 30.0, 8.0, 8.0),
                   child: ListTile(
                     title: Text(
-                      pokemon.name?.capitalize() ?? '',
+                      pokemon.name.capitalize(),
                       style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                     subtitle: Text(
-                      pokemon.type?.capitalize() ?? '',
+                      pokemon.type.capitalize(),
                     ),
                     onTap: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => DetailPage(pokemon: pokemon.toJson()),
+                          builder: (context) => DetailPage(
+                            pokemon: pokemon.toJson(),
+                            pokemonList: pokemonList.map((p) => p.toJson() as Map<String, dynamic>).toList(),
+                            currentIndex: index,
+                          ),
                         ),
                       );
                     },
