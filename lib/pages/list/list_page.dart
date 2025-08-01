@@ -38,7 +38,7 @@ class _ListPageState extends State<ListPage> {
           final pokemonResponse = await http.get(Uri.parse(pokemon['url']));
           if (pokemonResponse.statusCode == 200) {
             final pokemonData = json.decode(pokemonResponse.body);
-            pokemons.add(Pokemon.fromJson(pokemonData));
+            pokemons.add(Pokemon.fromJson(pokemonData, originalUrl: pokemon['url']));
           }
         }
         
